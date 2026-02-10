@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px;
+      width: 360px;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      background-color: #11998e;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0e8b80;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="form">
+    <h2>ATM Withdrawal</h2>
+
+    <label>Enter Balance</label>
+    <input type="number" id="balance" required>
+
+    <label>Enter Withdraw Amount</label>
+    <input type="number" id="withdraw" required>
+
+    <button type="submit">Withdraw</button>
+
+    <div id="result"></div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

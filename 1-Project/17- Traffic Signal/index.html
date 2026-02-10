@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #232526, #414345);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px;
+      width: 360px;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      background-color: #111;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #000;
+    }
+
+    #result {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="form">
+    <h2>Traffic Signal Simulator</h2>
+
+    <label>Select Signal</label>
+    <select id="signal" required>
+      <option value="">-- Select --</option>
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+    </select>
+
+    <button type="submit">Check</button>
+
+    <div id="result"></div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

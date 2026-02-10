@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(120deg, #84fab0, #8fd3f4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0 15px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #result {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="form">
+    <h2>Largest of Three Numbers</h2>
+
+    <label>First Number:</label>
+    <input type="number" placeholder="Enter Number 1" id="n1" required>
+
+    <label>Second Number:</label>
+    <input type="number" placeholder="Enter Number 2" id="n2" required>
+
+    <label>Third Number:</label>
+    <input type="number" placeholder="Enter Number 3" id="n3" required>
+
+    <button type="submit">Find Largest</button>
+
+    <div id="result"></div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

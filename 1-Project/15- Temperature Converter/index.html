@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #56ccf2, #2f80ed);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px;
+      width: 360px;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      background-color: #2f80ed;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1f6fd1;
+    }
+
+    #result {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="form">
+    <h2>Temperature Converter</h2>
+
+    <label>Enter Temperature</label>
+    <input type="number" id="temp" required>
+
+    <label>Convert</label>
+    <select id="type">
+      <option value="CtoF">Celsius to Fahrenheit</option>
+      <option value="FtoC">Fahrenheit to Celsius</option>
+    </select>
+
+    <button type="submit">Convert</button>
+
+    <div id="result"></div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

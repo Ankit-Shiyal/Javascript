@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px;
+      width: 320px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #43cea2;
+      box-shadow: 0 0 6px rgba(67,206,162,0.6);
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+      background: #43cea2;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2ebf91;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="form">
+    <h2>Leap Year Checker</h2>
+
+    <label>Enter Year</label>
+    <input type="number" placeholder="Enter Year" id="year" required>
+
+    <button type="submit">Check</button>
+
+    <div id="result"></div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
