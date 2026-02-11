@@ -38,3 +38,16 @@ Each project uses:
 18. BMI Calculator  
 19. Movie Ticket Price Calculator
 
+-**## live link**
+
+1.	Even or Odd Checker : https://javascript-two-livid.vercel.app/
+2.	Positive / Negative / Zero Checker : https://javascript-emer.vercel.app/
+3.	Largest of Three Numbers : https://javascript-sygw.vercel.app/
+4.	Leap Year Checker : https://javascript-a21u.vercel.app/
+5.	Vowel or Consonant Checker : https://javascript-amir.vercel.app/
+6.	Age Eligibility Checker (Vote / Drive / Senior Citizen) : https://javascript-jhsq.vercel.app/
+7.	Factorial of a Number : https://javascript-8ot1.vercel.app/
+8.	Multiplication Table Generator : https://javascript-8ijj.vercel.app/
+9.	Sum of Digits of a Number : https://javascript-6qle.vercel.app/
+10.	Reverse a Number : https://javascript-pvi7.vercel.app/
+
