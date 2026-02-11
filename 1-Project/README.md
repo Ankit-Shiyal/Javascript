@@ -50,4 +50,15 @@ Each project uses:
 8.	Multiplication Table Generator : https://javascript-8ijj.vercel.app/
 9.	Sum of Digits of a Number : https://javascript-6qle.vercel.app/
 10.	Reverse a Number : https://javascript-pvi7.vercel.app/
+11.	Palindrome Number Checker :  https://javascript-paladrom.netlify.app/
+12.	Prime Number Checker : https://javascript-prime-12.netlify.app/
+13.	ATM Withdrawal Simulator : https://effervescent-cobbler-b43916.netlify.app/
+14.	Shopping Discount Calculator : https://rainbow-kitsune-50ea00.netlify.app/
+15.	Temperature Converter (Celsius ↔ Fahrenheit) : https://relaxed-seahorse-5a8926.netlify.app/
+16.	Currency Converter : https://transcendent-chebakia-2f66dd.netlify.app/
+17.	Traffic Signal Simulator : https://clinquant-otter-f664e0.netlify.app/
+18.	BMI Calculator : https://shimmering-tartufo-db8b2a.netlify.app/
+19.	Movie Ticket Price Calculator : https://chimerical-toffee-12ea3e.netlify.app/
+
+
 
