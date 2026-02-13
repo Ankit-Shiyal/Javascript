@@ -1,0 +1,18 @@
+
+
+
+const person = {
+    name: "Ankit",
+    lastName: "Shiyal",
+    city: "Bhavnagar",
+    age: 20
+};
+
+// using dot
+person.name ="Ankit Shiyal"
+console.log(person)
+
+// using []
+person["city"] = "Ahmadabad"
+console.log(person)
+
