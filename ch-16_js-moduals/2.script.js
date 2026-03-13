@@ -3,4 +3,4 @@
 
 import  calculation  from "./1.script.js";
 
-calculation(10, 5);
+calculation(10, 5)
