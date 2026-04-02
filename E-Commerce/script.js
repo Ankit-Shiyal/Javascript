@@ -22,18 +22,18 @@ const products = [
   { id: 19, name: "Smart TV", price: 35000, img: "https://images.pexels.com/photos/678256/pexels-photo-678256.jpeg" },
   { id: 20, name: "Tablet", price: 15000, img: "https://images.pexels.com/photos/5082565/pexels-photo-5082565.jpeg" }
 
-];const productlist = document.getElementById("productlist");
+]; const productlist = document.getElementById("productlist");
 
 // SHOW PRODUCTS
-products.forEach((a) => {
+products.forEach((p) => {
   productlist.innerHTML += `
     <div class="col-md-3 mt-3">
       <div class="card">
-        <img src="${a.img}" class="card-img-top" style="height:200px;object-fit:cover;">
+        <img src="${p.img}" class="card-img-top" style="height:200px;object-fit:cover;">
         <div class="card-body text-center">
-          <h5>${a.name}</h5>
-          <p>₹${a.price}</p>
-          <button class="btn btn-outline-primary" onclick="addToCart(${a.id})">
+          <h5>${p.name}</h5>
+          <p>₹${p.price}</p>
+          <button class="btn btn-outline-primary" onclick="addToCart(${p.id})">
             Add To Cart
           </button>
         </div>
@@ -51,16 +51,16 @@ console.log("cartItems", cartItems)
 function addToCart(id) {
 
   try {
-  let product = cartItems.find((prod) => prod.id === id);
+    let product = cartItems.find((prod) => prod.id === id);
 
-     if (product) {
-    product.qty++;
-  } else {
-    let product = products.find((prod) => prod.id === id);
-    cartItems.push({ ...product, qty: 1 });
-  }
+    if (product) {
+      product.qty++;
+    } else {
+      let product = products.find((prod) => prod.id === id);
+      cartItems.push({ ...product, qty: 1 });
+    }
 
-  localStorage.setItem("cartData", JSON.stringify(cartItems));
+    localStorage.setItem("cartData", JSON.stringify(cartItems));
   }
   catch (error) {
     console.log(error)
@@ -68,4 +68,46 @@ function addToCart(id) {
 
 }
 
+function showModal() {
 
+  const cartItemList = document.getElementById("cartItem-list")
+
+   showCartData();
+
+  const modal = new bootstrap.Modal(cartItemList)
+  modal.show()
+}
+
+function showCartData(){
+  try{
+
+    const cartTable = document.getElementById("cartData");
+
+     cartTable.innerHTML = "";
+
+    cartItems.forEach((p) => {
+      cartTable.innerHTML += `
+      
+      <tr>
+      
+      <td>${p.name}</td>
+      <td>
+      <div class="d-flex gap-2">
+
+      <button class="btn btn-outline-success" >+</button>
+      
+      <h5>${p.qty}</h5>
+ <button class="btn btn-outline-danger" >-</button>
+      
+      </div>
+      </td>
+      <td>₹ ${p.price * p.qty}</td>
+      <td><button class="btn btn-outline-danger" >remove</button></td>
+      
+      </tr>
+      
+
+      `;
+    });
+  } catch (error) {}
+}
