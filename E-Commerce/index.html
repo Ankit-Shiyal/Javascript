@@ -13,10 +13,8 @@
 
 <body>
 
-
   <section>
     <div class="container">
-
       <nav class="navbar navbar-expand-lg bg-body-secondary">
         <div class="container">
           <a class="navbar-brand" href="#">Navbar</a>
@@ -42,8 +40,6 @@
           </div>
         </div>
       </nav>
-
-
     </div>
   </section>
 
@@ -55,33 +51,37 @@
 
 
     <div class="modal fade" id="cartItem-list" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Cart Items</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <!-- <th>Image</th> -->
-              <th>Product price</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="cartData"></tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Cart Items</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table text-center ">
+              <thead>
+                <tr>
+                  <th>Product Image</th>
+                  <th>Product price</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="cartData"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            
+            <h5 class="fw-bold" id="grand-total"></h5>
+
+
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">chek out</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
   </main>
 

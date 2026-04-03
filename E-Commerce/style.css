@@ -53,6 +53,10 @@ body {
 }
 
 .btn {
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding: 6px 15px;
+}
+
+.modal-dialog{
+    min-width:fit-content
 }

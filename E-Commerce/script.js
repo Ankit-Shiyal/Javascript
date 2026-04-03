@@ -10,7 +10,6 @@ const products = [
   { id: 8, name: "Sunglasses", price: 699, img: "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg" },
   { id: 9, name: "Camera", price: 30000, img: "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg" },
   { id: 10, name: "Keyboard", price: 999, img: "https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg" },
-
   { id: 11, name: "Mouse", price: 499, img: "https://images.pexels.com/photos/5082566/pexels-photo-5082566.jpeg" },
   { id: 12, name: "Speaker", price: 1500, img: "https://images.pexels.com/photos/63703/pexels-photo-63703.jpeg" },
   { id: 13, name: "Chair", price: 3500, img: "https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg" },
@@ -22,9 +21,9 @@ const products = [
   { id: 19, name: "Smart TV", price: 35000, img: "https://images.pexels.com/photos/678256/pexels-photo-678256.jpeg" },
   { id: 20, name: "Tablet", price: 15000, img: "https://images.pexels.com/photos/5082565/pexels-photo-5082565.jpeg" }
 
-]; const productlist = document.getElementById("productlist");
+];
+const productlist = document.getElementById("productlist");
 
-// SHOW PRODUCTS
 products.forEach((p) => {
   productlist.innerHTML += `
     <div class="col-md-3 mt-3">
@@ -43,9 +42,7 @@ products.forEach((p) => {
 });
 
 
-
 let cartItems = JSON.parse(localStorage.getItem("cartData")) || [];
-
 console.log("cartItems", cartItems)
 
 function addToCart(id) {
@@ -66,48 +63,89 @@ function addToCart(id) {
     console.log(error)
   }
 
+  alert("product added")
+
 }
 
 function showModal() {
 
   const cartItemList = document.getElementById("cartItem-list")
 
-   showCartData();
+  showCartData();
 
   const modal = new bootstrap.Modal(cartItemList)
   modal.show()
 }
 
-function showCartData(){
-  try{
+function showCartData() {
+  try {
 
     const cartTable = document.getElementById("cartData");
 
-     cartTable.innerHTML = "";
+    cartTable.innerHTML = "";
 
     cartItems.forEach((p) => {
       cartTable.innerHTML += `
       
       <tr>
-      
-      <td>${p.name}</td>
+      <td><img src="${p.img}" class=img-thumbnail style=" height:60px; object-fit:cover;"></td>
+      <td class="align-self-center">${p.name}</td>
       <td>
       <div class="d-flex gap-2">
 
-      <button class="btn btn-outline-success" >+</button>
+      <button class="btn btn-outline-success" onclick="increaseQty(${p.id})" >+</button>
       
       <h5>${p.qty}</h5>
- <button class="btn btn-outline-danger" >-</button>
+ <button class="btn btn-outline-danger" onclick="decreaseQty(${p.id})" >-</button>
       
       </div>
       </td>
-      <td>₹ ${p.price * p.qty}</td>
-      <td><button class="btn btn-outline-danger" >remove</button></td>
+      <td><h4>₹ ${p.price * p.qty}</h4></td>
+      <td><button class="btn btn-outline-danger"  onclick="removeItem(${p.id})">remove</button></td>
       
       </tr>
       
 
       `;
     });
-  } catch (error) {}
+  } catch (error) { }
 }
+
+
+function increaseQty(id) {
+  let item = cartItems.find((p) => p.id === id);
+
+  item.qty++;
+
+  localStorage.setItem("cartData", JSON.stringify(cartItems));
+
+  showCartData();
+}
+
+
+function decreaseQty(id) {
+
+  let item = cartItems.find((p) => p.id === id);
+
+  if (item.qty <= 1) {
+    cartItems = cartItems.filter((p) => p.id !== id);
+
+  } else {
+    item.qty--;
+  }
+
+  localStorage.setItem("cartData", JSON.stringify(cartItems));
+
+  showCartData();
+}
+
+function removeItem(id) {
+  cartItems = cartItems.filter((p) => p.id !== id);
+
+  localStorage.setItem("cartData", JSON.stringify(cartItems));
+
+  showCartData();
+}
+
+
+
