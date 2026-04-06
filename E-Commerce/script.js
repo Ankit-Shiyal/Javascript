@@ -32,9 +32,15 @@ products.forEach((p) => {
         <div class="card-body text-center">
           <h5>${p.name}</h5>
           <p>₹${p.price}</p>
-          <button class="btn btn-outline-primary" onclick="addToCart(${p.id})">
-            Add To Cart
-          </button>
+
+          <div class="d-grid gap-2 d-md-block mb-2">
+            <button class="btn btn-outline-secondary" type="button">Update</button>
+            <button class="btn btn-outline-secondary" type="button">Remove</button>
+          </div>
+          
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary" onclick="addToCart(${p.id})">Add To Cart</button>
+          </div>      
         </div>
       </div>
     </div>
@@ -148,4 +154,50 @@ function removeItem(id) {
 }
 
 
+
+document.getElementById("productForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let name = document.getElementById("pname").value;
+  let price = document.getElementById("pprice").value;
+  let img = document.getElementById("pimg").value;
+
+  let newProduct = {
+    id: products.length + 1,
+    name: name,
+    price: Number(price),
+    img: img
+  };
+
+  products.push(newProduct);
+
+  addProductToUI(newProduct);
+
+  this.reset();
+  const addProductModal = document.getElementById("addProductModal")
+
+  const modal = new bootstrap.Modal(addProductModal)
+  modal.hide();
+});
+
+
+function addProductToUI(p) {
+  const productlist = document.getElementById("productlist");
+
+  productlist.innerHTML += `
+    <div class="col-md-3 mt-3">
+      <div class="card">
+        <img src="${p.img}" class="card-img-top" style="height:200px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h5>${p.name}</h5>
+          <p>₹${p.price}</p>
+          <button class="btn btn-outline-primary" onclick="addToCart(${p.id})">
+            Add To Cart
+          </button>
+          
+        </div>
+      </div>
+    </div>
+  `;
+}
 
