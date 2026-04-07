@@ -1,4 +1,4 @@
-const products = [
+let products = [
 
   { id: 1, name: "Shoes", price: 999, img: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" },
   { id: 2, name: "Watch", price: 1499, img: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg" },
@@ -22,39 +22,50 @@ const products = [
   { id: 20, name: "Tablet", price: 15000, img: "https://images.pexels.com/photos/5082565/pexels-photo-5082565.jpeg" }
 
 ];
-const productlist = document.getElementById("productlist");
+function renderProducts() {
+  const productlist = document.getElementById("productlist");
+  productlist.innerHTML = "";
 
-products.forEach((p) => {
-  productlist.innerHTML += `
-    <div class="col-md-3 mt-3">
-      <div class="card">
-        <img src="${p.img}" class="card-img-top" style="height:200px;object-fit:cover;">
-        <div class="card-body text-center">
-          <h5>${p.name}</h5>
-          <p>₹${p.price}</p>
+  products.forEach((p) => {
+    productlist.innerHTML += `
+      <div class="col-md-3 mt-3">
+        <div class="card">
+          <img src="${p.img}" class="card-img-top" style="height:200px;object-fit:cover;">
+          <div class="card-body text-center">
+            <h5>${p.name}</h5>
+            <p>₹${p.price}</p>
 
-          <div class="d-grid gap-2 d-md-block mb-2">
-            <button class="btn btn-outline-secondary" type="button">Update</button>
-            <button class="btn btn-outline-secondary" type="button">Remove</button>
+            <div class="d-grid gap-2 d-md-block mb-2">
+              <button class="btn btn-outline-secondary" onclick="updateModal(${p.id})">Update</button>
+              <button class="btn btn-outline-danger" onclick="removeProduct(${p.id})">Remove</button>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart(${p.id})">
+                Add To Cart
+              </button>
+            </div>
           </div>
-          
-          <div class="d-grid gap-2">
-            <button class="btn btn-outline-secondary" onclick="addToCart(${p.id})">Add To Cart</button>
-          </div>      
         </div>
       </div>
-    </div>
-  `;
-});
+    `;
+  });
+}
 
+let cartItems = JSON.parse(localStorage.getItem("cartData")) || []
 
-let cartItems = JSON.parse(localStorage.getItem("cartData")) || [];
-console.log("cartItems", cartItems)
+if (!Array.isArray(cartItems)) {
+  cartItems = [];
+}
+// console.log("cartItems", cartItems)
 
 function addToCart(id) {
 
   try {
-    let product = cartItems.find((prod) => prod.id === id);
+    let product = cartItems.find((p) => p.id === id)
+
+
+    // console.log("pro",product)
 
     if (product) {
       product.qty++;
@@ -64,12 +75,14 @@ function addToCart(id) {
     }
 
     localStorage.setItem("cartData", JSON.stringify(cartItems));
+
+    alert("product added")
   }
   catch (error) {
     console.log(error)
   }
 
-  alert("product added")
+
 
 }
 
@@ -201,3 +214,66 @@ function addProductToUI(p) {
   `;
 }
 
+function removeProduct(id) {
+
+  const product = products.find((p) => p.id === id)
+
+  if (!product) {
+    return alert("product is note found")
+  }
+
+  products = products.filter((p) => p.id !== id)
+  renderProducts();
+
+}
+
+renderProducts()
+
+
+function updateModal(id){
+
+  const updateProduct = document.getElementById("updateProduct")
+
+  let modal = new bootstrap.Modal(updateProduct)
+
+  modal.show();
+
+  const product = products.find((p) => p.id === id)
+
+   if (!product) {
+    return alert("product is note found")
+  }
+
+  let index = products.findIndex((p) => p.id===id)
+
+  if(index === -1){
+    return alert("product is note found")
+    
+  }
+
+  document.getElementById("updateName").value = products[index].name
+  document.getElementById("updatePrice").value = products[index].price
+  document.getElementById("updateImg").value = products[index].img
+
+  document.getElementById("UpdateForm").addEventListener("submit", (e)=>{
+    e.preventDefault()
+
+    let name = document.getElementById("updateName").value
+    let price = document.getElementById("updatePrice").value
+    let image =  document.getElementById("updateImg").value
+
+
+    products[index] ={
+
+      name, price, image
+    }
+
+    modal.hide();
+
+
+renderProducts();
+
+  });
+
+
+}
