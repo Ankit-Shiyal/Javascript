@@ -68,6 +68,7 @@ let options = document.getElementById("options")
 
 let butSubmit = document.getElementById("butSubmit")
 
+
 let currentIndex = 0
 
 function lodeQuestion() {
@@ -76,7 +77,7 @@ function lodeQuestion() {
 
     questions.innerText = currentQUS.question
 
-    options.innerHTML = ""
+    options.innerText = ""
 
     currentQUS.options.forEach((opt) => {
 
@@ -86,7 +87,7 @@ function lodeQuestion() {
 
         let button = document.createElement("button")
 
-        button.innerHTML = opt
+        button.innerText = opt
 
         button.classList.add("btn", "btn-outline-primary", "option-btn")
 
@@ -94,12 +95,28 @@ function lodeQuestion() {
 
         options.appendChild(col)
 
+
+
+
     })
+
 
 }
 lodeQuestion()
 
-function next (){
 
-    
-}
+// let qunsCounter = 0
+
+// function nextQuestion() {
+
+//         if (quizData.length > currentIndex) {
+//             currentIndex++
+//             qunsCounter++
+//         }
+//     qusNumber.innerHTML =`Qns ${qunsCounter}/10`
+
+
+//     lodeQuestion()
+
+// }
+// nextQuestion()
