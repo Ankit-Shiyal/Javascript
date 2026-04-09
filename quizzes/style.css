@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1e1e2f;
+    color: white;
+}
+
+.Quizzes {
+    background: #2c2c3e;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+}
+
+#questions {
+    margin: 20px 0;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#options button {
+    width: 100%;  
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+#options button:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+
+#butSubmit {
+    border-radius: 10px;
+}
