@@ -11,6 +11,7 @@ const quizData = [
         ],
         answer: "Hyper Text Markup Language"
     },
+
     {
         question: "Which CSS property is used to change text color?",
         options: ["font-style", "text-color", "color", "background-color"],
@@ -70,6 +71,8 @@ let butSubmit = document.getElementById("butSubmit")
 
 
 let currentIndex = 0
+let score = 0;
+let selectedAnswer = "";
 
 function lodeQuestion() {
 
@@ -79,7 +82,7 @@ function lodeQuestion() {
 
     options.innerText = ""
 
-    currentQUS.options.forEach((opt) => {
+    currentQUS.options.forEach((opt , index) => {
 
         let col = document.createElement("div")
 
@@ -91,12 +94,15 @@ function lodeQuestion() {
 
         button.classList.add("btn", "btn-outline-primary", "option-btn")
 
+
+        button.addEventListener(("click"), () => {
+             selectedAnswer = opt;
+             nextQuestion()
+        })
+
         col.appendChild(button)
 
         options.appendChild(col)
-
-
-
 
     })
 
@@ -105,18 +111,40 @@ function lodeQuestion() {
 lodeQuestion()
 
 
-// let qunsCounter = 0
+let qunsCounter = 1;
 
-// function nextQuestion() {
+function nextQuestion() {
 
-//         if (quizData.length > currentIndex) {
-//             currentIndex++
-//             qunsCounter++
-//         }
-//     qusNumber.innerHTML =`Qns ${qunsCounter}/10`
+    if (selectedAnswer === quizData[currentIndex].answer) {
+    score++;
+  }
+
+  
+
+    if (currentIndex < quizData.length -1) {
+        currentIndex++;
+        qunsCounter++;
 
 
-//     lodeQuestion()
+        selectedAnswer = null;
+        qusNumber.innerHTML = `Qns ${qunsCounter}/${quizData.length}`;
+        lodeQuestion();
+    } else {
+        qunestionResult();
+    }
+    // lodeQuestion()
 
-// }
+}
 // nextQuestion()
+
+function qunestionResult() {
+  const qunestionResult = document.getElementById("Quizzes-result");
+
+  qunestionResult.innerHTML = `
+  
+  <h3 class="text-center" >Quiz Result</h3>
+
+  <h5 class="text-center">Result:- ${score}/${quizData.length} </h5>
+
+  `;
+}
