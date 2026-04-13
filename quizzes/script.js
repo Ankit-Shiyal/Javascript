@@ -1,5 +1,3 @@
-
-
 const quizData = [
     {
         question: "What does HTML stand for?",
@@ -11,7 +9,6 @@ const quizData = [
         ],
         answer: "Hyper Text Markup Language"
     },
-
     {
         question: "Which CSS property is used to change text color?",
         options: ["font-style", "text-color", "color", "background-color"],
@@ -39,8 +36,8 @@ const quizData = [
     },
     {
         question: "Which HTML tag is used for images?",
-        options: ["<img>", "<image>", "<pic>", "<src>"],
-        answer: "<img>"
+        options: ["img", "image", "pic", "src"],
+        answer: "img"
     },
     {
         question: "Which CSS property controls layout flex?",
@@ -59,92 +56,110 @@ const quizData = [
     }
 ];
 
-let qusNumber = document.getElementById("qusNumber")
+let qusNumber = document.getElementById("qusNumber");
+let timer = document.getElementById("timer");
+let questions = document.getElementById("questions");
+let options = document.getElementById("options");
+let butSubmit = document.getElementById("butSubmit");
 
-let timer = document.getElementById("timer")
-
-let questions = document.getElementById("questions")
-
-let options = document.getElementById("options")
-
-let butSubmit = document.getElementById("butSubmit")
-
-
-let currentIndex = 0
+let currentIndex = 0;
 let score = 0;
-let selectedAnswer = "";
-
-function lodeQuestion() {
-
-    let currentQUS = quizData[currentIndex]
-
-    questions.innerText = currentQUS.question
-
-    options.innerText = ""
-
-    currentQUS.options.forEach((opt , index) => {
-
-        let col = document.createElement("div")
-
-        col.classList.add("col-md-6")
-
-        let button = document.createElement("button")
-
-        button.innerText = opt
-
-        button.classList.add("btn", "btn-outline-primary", "option-btn")
-
-
-        button.addEventListener(("click"), () => {
-             selectedAnswer = opt;
-             nextQuestion()
-        })
-
-        col.appendChild(button)
-
-        options.appendChild(col)
-
-    })
-
-
-}
-lodeQuestion()
-
+let selectedAnswer = null;
+let userAnswer = [];
 
 let qunsCounter = 1;
 
+function lodeQuestion() {
+
+    let currentQUS = quizData[currentIndex];
+
+    qusNumber.innerHTML = `Qns ${qunsCounter}/${quizData.length}`;
+
+    questions.innerText = currentQUS.question;
+
+    options.innerHTML = "";
+
+    currentQUS.options.forEach((opt, index) => {
+
+        let col = document.createElement("div");
+        col.classList.add("col-md-6");
+
+        let button = document.createElement("button");
+
+        button.innerText = opt;
+        button.classList.add("btn", "btn-outline-primary", "option-btn");
+
+        button.onclick = function () {
+            selectedAnswer = index;
+
+            userAnswer.push({
+                question: currentQUS.question,
+                selected: index,
+                correct: currentQUS.answer,
+                options: currentQUS.options,
+            });
+
+            nextQuestion();
+        };
+
+        col.appendChild(button);
+        options.appendChild(col);
+    });
+}
+
+lodeQuestion();
+
 function nextQuestion() {
 
-    if (selectedAnswer === quizData[currentIndex].answer) {
-    score++;
-  }
+    if (selectedAnswer !== null && quizData[currentIndex].options[selectedAnswer] === quizData[currentIndex].answer) {
+        score++;
+    }
 
-  
-
-    if (currentIndex < quizData.length -1) {
+    if (currentIndex < quizData.length - 1) {
         currentIndex++;
         qunsCounter++;
-
-
         selectedAnswer = null;
-        qusNumber.innerHTML = `Qns ${qunsCounter}/${quizData.length}`;
+
         lodeQuestion();
     } else {
         qunestionResult();
     }
-    // lodeQuestion()
-
 }
-// nextQuestion()
 
 function qunestionResult() {
-  const qunestionResult = document.getElementById("Quizzes-result");
+    const qunestionResult = document.getElementById("Quizzes-result");
 
-  qunestionResult.innerHTML = `
+    options.innerHTML = ""
+    butSubmit.style.display = "none"
+    questions.innerHTML = ""
+
+    qunestionResult.innerHTML = `
   
-  <h3 class="text-center" >Quiz Result</h3>
+  <h3 class="text-center">Quiz Result</h3>
+  <h5 class="text-center">Result:- ${score}/${quizData.length}</h5>
 
-  <h5 class="text-center">Result:- ${score}/${quizData.length} </h5>
+  <div class="mt-3">
 
+  <h3 class="text-center">Review Summary</h3>
+
+  <ul class="list-group">
+  ${userAnswer.map(
+        (ans, index) => `
+    
+    <li class="list-group-item">
+
+    <h5 class="text-center"> Question No-${index + 1} :- ${ans.question}</h5>
+    <br>
+    <h6 class="text-center">Your Answer :- ${ans.selected !== null ? ans.options[ans.selected] : "not selected"}  </h6>
+    <br>
+    <h6 class="text-center">Correct Answer :- ${ans.correct}</h6>
+    
+    </li>
+    
+    `
+    )}
+  </ul>
+
+  </div>
   `;
 }
