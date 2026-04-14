@@ -57,7 +57,7 @@ const quizData = [
 ];
 
 let qusNumber = document.getElementById("qusNumber");
-let timer = document.getElementById("timer");
+let qnsTimer = document.getElementById("timer");
 let questions = document.getElementById("questions");
 let options = document.getElementById("options");
 let butSubmit = document.getElementById("butSubmit");
@@ -66,18 +66,20 @@ let currentIndex = 0;
 let score = 0;
 let selectedAnswer = null;
 let userAnswer = [];
-
-let qunsCounter = 1;
+let qnsCounter = 1;
+let TimerLeft = 30;
+let interval;
 
 function lodeQuestion() {
 
     let currentQUS = quizData[currentIndex];
 
-    qusNumber.innerHTML = `Qns ${qunsCounter}/${quizData.length}`;
+    qusNumber.innerHTML = `Qns ${qnsCounter}/${quizData.length}`;
 
     questions.innerText = currentQUS.question;
 
     options.innerHTML = "";
+    
 
     currentQUS.options.forEach((opt, index) => {
 
@@ -105,9 +107,30 @@ function lodeQuestion() {
         col.appendChild(button);
         options.appendChild(col);
     });
+        timer()
+
 }
 
 lodeQuestion();
+
+function timer() {
+  clearInterval(interval);
+  TimerLeft = 30;
+  qnsTimer.innerHTML =`Time Left : ${TimerLeft}`;
+
+  interval = setInterval(() => {
+    TimerLeft--;
+
+    qnsTimer.innerHTML =`Time Left : ${TimerLeft}`;
+
+    if (TimerLeft < 0) {
+      nextQuestion();
+      selectedAnswer = null;
+    }
+  }, 1000);
+}
+
+
 
 function nextQuestion() {
 
@@ -117,23 +140,29 @@ function nextQuestion() {
 
     if (currentIndex < quizData.length - 1) {
         currentIndex++;
-        qunsCounter++;
+        qnsCounter++;
         selectedAnswer = null;
 
         lodeQuestion();
     } else {
-        qunestionResult();
+        questionResult();
     }
 }
 
-function qunestionResult() {
-    const qunestionResult = document.getElementById("Quizzes-result");
+function questionResult() {
+    const questionResult = document.getElementById("Quizzes-result");
+
+    let h1 = document.getElementById("h1")
 
     options.innerHTML = ""
     butSubmit.style.display = "none"
     questions.innerHTML = ""
+    h1.innerHTML=""
+    qnsTimer.style.display="none"
+    qusNumber.innerHTML =""
+     
 
-    qunestionResult.innerHTML = `
+    questionResult.innerHTML = `
   
   <h3 class="text-center">Quiz Result</h3>
   <h5 class="text-center">Result:- ${score}/${quizData.length}</h5>
@@ -142,7 +171,7 @@ function qunestionResult() {
 
   <h3 class="text-center">Review Summary</h3>
 
-  <ul class="list-group">
+  <ul class="list-group answer-qus">
   ${userAnswer.map(
         (ans, index) => `
     
@@ -163,3 +192,15 @@ function qunestionResult() {
   </div>
   `;
 }
+
+
+
+
+
+
+
+
+
+
+
+

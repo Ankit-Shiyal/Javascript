@@ -1,46 +1,119 @@
-*{
-    padding: 0;
+
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background: #1e1e2f;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
 }
 
 .Quizzes {
-    background: #2c2c3e;
-    padding: 30px;
-    border-radius: 15px;
+    margin-top: 50px;
     width: 500px;
+    max-width: 95%;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.Quizzes h1 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.div {
+    margin-bottom: 10px;
+}
+
+#timer {
+    font-weight: bold;
+    color: #ff4d4d;
 }
 
 #questions {
     margin: 20px 0;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 #options {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 12px;
 }
 
-#options button {
-    width: 100%;  
-    margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 10px;
+#options .col-md-6 {
+    width: 48%;
+}
+
+.option-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
     font-weight: 500;
-    transition: 0.3s;
+    
 }
 
-#options button:hover {
-    background-color: #0d6efd;
+.option-btn:hover {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.option-btn.active {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: black;
+}
+
+.option-btn.correct {
+    background: #28a745;
     color: white;
 }
 
+.option-btn.wrong {
+    background: #dc3545;
+    color: white;
+}
 
 #butSubmit {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    transition: 0.3s;
+}
+
+#butSubmit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+
+.answer-qus {
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.list-group-item {
+    background: rgba(255,255,255,0.05);
+    border: none;
+    color: white;
+    margin-bottom: 10px;
     border-radius: 10px;
 }
