@@ -9,7 +9,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <style>
-        .container {
+        .container-fluid {
             height: 100vh;
         }
 
@@ -20,8 +20,8 @@
 
         #img {
             border-radius: 10px;
-           height: 500px;
-            width: 500px;
+            height: 600px;
+            width: 600px;
 
         }
     </style>
@@ -32,13 +32,13 @@
 <body>
 
 
-    <div class="container d-flex  justify-content-center align-items-center ">
-        <button class="btn btn-outline-secondary" id="pri" onclick="priIMG()">
+    <div class="container-fluid bg-dark d-flex  justify-content-center align-items-center ">
+        <button class="btn btn-secondary" id="pri" onclick="priIMG()">
             < </button>
                 <img src="" id="img" alt="" class="m-4">
 
 
-                <button class="btn btn-outline-secondary" id="next" onclick="nextIMG()"> > </button>
+                <button class="btn btn-secondary" id="next" onclick="nextIMG()"> > </button>
 
     </div>
 

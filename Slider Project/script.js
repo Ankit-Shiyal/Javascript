@@ -37,7 +37,8 @@ function nextIMG() {
     natureIMG.src = image[index]
 }
 
-setInterval(()=>{
+setInterval(() => {
 
-nextIMG()},3000
+    nextIMG()
+}, 3000
 )
