@@ -27,3 +27,6 @@ This project allows users to navigate through images using Previous / Next butto
     -  → shows next image
     -  → shows previous image
 - setInterval() automatically changes image every 3 seconds
+
+ <img width="891" height="435" alt="Screenshot 2026-04-17 103814" src="https://github.com/user-attachments/assets/afe4f7e0-44d7-45ea-bdf1-a76b26d76e96" />
+
