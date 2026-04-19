@@ -1,5 +1,5 @@
 
-live link :https://frabjous-arithmetic-25119f.netlify.app/
+live link :https://rainbow-axolotl-6855c4.netlify.app/
 
 # 🧠 Quiz Application
 
