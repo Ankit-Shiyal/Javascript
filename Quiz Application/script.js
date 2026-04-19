@@ -57,7 +57,7 @@ const quizData = [
 ];
 
 let QnsNum = document.getElementById("QnsNum")
-let timer = document.getElementById("timer")
+let qnsTimer = document.getElementById("timer")
 let Question = document.getElementById("Question")
 let QnsOption = document.getElementById("QnsOption")
 let nextBtn = document.getElementById("nextBtn")
@@ -67,6 +67,8 @@ let currentIndex = 0
 let selectedAnswer = null
 let userAnswer = []
 let score = 0
+let TimerLeft = 30;
+let interval;
 
 function qnsLoad() {
 
@@ -93,13 +95,12 @@ function qnsLoad() {
             selectedAnswer = index;
 
            
-
-            userAnswer.push({
-                question: currentQns.question,
-                correct: index,
-                options: currentQns.options,
-                answer: currentQns.answer
-            })
+userAnswer.push({
+    question: currentQns.question,
+    selected: index,                 
+    correct: currentQns.answer,      
+    options: currentQns.options
+})
 
             nextQns()
         }
@@ -108,11 +109,28 @@ function qnsLoad() {
         QnsOption.appendChild(col)
     })
 
+    timer()
 }
 qnsLoad()
 
 
+function timer() {
 
+  clearInterval(interval);
+  TimerLeft = 30;
+  qnsTimer.innerHTML =`Time Left : ${TimerLeft}`;
+
+  interval = setInterval(() => {
+    TimerLeft--;
+
+    qnsTimer.innerHTML =`Time Left : ${TimerLeft}`;
+
+    if (TimerLeft < 0) {
+      nextQns();
+      selectedAnswer = null;
+    }
+  }, 1000);
+}
 
 
 
@@ -122,7 +140,6 @@ function nextQns() {
         score++
      
     }
-
 
     if (currentIndex < quizData.length - 1) {
         currentIndex++
@@ -137,38 +154,43 @@ function nextQns() {
 
 function Result() {
 
+QnsOption.innerHTML = ""       
+nextBtn.style.display = "none" 
+Question.innerHTML = ""
+qnsTimer.style.display = "none"
+QnsNum.innerHTML = ""
+
     result.innerHTML = `
     
-    <h3>result</h3>
+    <h3 class="">Result</h3>
     <h3>result: ${score}/${quizData.length}</h3>
 
+ <div class="mt-3">
 
+  <h3 class="text-center">Review Summary</h3>
 
+  <ul class="list-group answer-qus">
+  ${userAnswer.map(
+        (ans, index) => `
     
+    <li class="list-group-item">
+
+    <h5 class="text-center"> Question No-${index + 1} :- ${ans.question}</h5>
+    <br>
+    <h6 class="text-center">Your Answer :- ${ans.selected !== null ? ans.options[ans.selected] : "not selected"}  </h6>
+    <br>
+    <h6 class="text-center">Correct Answer :- ${ans.correct}</h6>
+    
+    </li>
+    
+    `
+    )}
+  </ul>
+
+  </div>
+
+
 
     `
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
