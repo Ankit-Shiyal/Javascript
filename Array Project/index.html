@@ -14,26 +14,51 @@
     <div class="container mt-5">
         <div class="shadow p-4 text-center">
 
-            <h3 class="mb-3">Array Input Project</h3>
+            <h3 class="mb-3">enter number</h3>
 
-            <input type="text" class=" mb-3" placeholder="Enter value" id="arrayInput">
 
-            <button class="btn btn-primary" >
-                revers
-            </button>
+
+            <input type="text" class=" mb-3" placeholder="Enter value" id="arrayNum">
+            <button id="start" class="btn btn-primary" onclick="startNum()">start</button>
+
+           
+
+            <div class="justify-content-center d-flex flex-wrap" id="itemArray"></div>
+
+             <div class="div" id="showArray" onclick="getArrayValues"></div>
+
+            <div class="div">
+
+                <button class="btn btn-primary" id="pushBtn">
+                    Push
+                </button>
+
+                <button class="btn btn-primary" id="popBtn">
+                    Pop
+                </button>
+
+                <button class="btn btn-primary" id="shiftBtn">
+                    Shift
+                </button>
+
+                <button class="btn btn-primary" id="unshiftBtn">
+                    Unshift
+                </button>
+
+            </div>
 
             <div class="mt-4">
                 <h5>Output:</h5>
                 <p id="output"></p>
             </div>
-            
+
 
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
