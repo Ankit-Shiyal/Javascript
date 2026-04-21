@@ -1,19 +1,22 @@
-let output = document.getElementById("output");
-let pushBtn = document.getElementById("pushBtn");
-let popBtn = document.getElementById("popBtn");
-let shiftBtn = document.getElementById("shiftBtn");
-let unshiftBtn = document.getElementById("unshiftBtn");
-let itemArray = document.getElementById("itemArray");
-let showArray = document.getElementById("showArray");
-let createArray = document.getElementById("createArray")
 
-let arr = [];
+let output = document.getElementById("output")
+let pushBtn = document.getElementById("pushBtn")
+let popBtn = document.getElementById("popBtn")
+let shiftBtn = document.getElementById("shiftBtn")
+let unshiftBtn = document.getElementById("unshiftBtn")
+let itemArray = document.getElementById("itemArray")
+let showArray = document.getElementById("showArray")
+let createArray = document.getElementById("createArray")
+let lengthBtn = document.getElementById("lengthBtn")
+let reverseBtn = document.getElementById("reverseBtn")
+
+let arr = []
 
 function startNum() {
     let numInput = document.getElementById("arrayNum").value;
 
     itemArray.innerHTML = "";
-    arr = [];
+    arr = []
 
     for (let i = 1; i <= numInput; i++) {
         itemArray.innerHTML += `
@@ -30,16 +33,16 @@ function loadArray() {
     for (let i = 1; i <= count; i++) {
         let val = document.getElementById("el" + i).value;
         if (val !== "") {
-            arr.push(val);
+            arr.push(val)
         }
     }
 
-    
-     createArray.innerHTML = "Array : [ " + arr.join(", ") + " ]";
+
+    createArray.innerHTML = "Array : [ " + arr.join(", ") + " ]";
 }
 
 function updateUI() {
-       output.innerHTML = "Output: [ " + arr.join(", ") + " ]";
+    output.innerHTML = "Output: [ " + arr.join(", ") + " ]";
 }
 
 showArray.onclick = loadArray;
@@ -53,7 +56,7 @@ document.getElementById("addBtn").onclick = function () {
     let value = document.getElementById("pushInput").value;
 
     if (value !== "") {
-        arr.push(value);
+        arr.push(value)
         updateUI();
     }
 
@@ -62,16 +65,16 @@ document.getElementById("addBtn").onclick = function () {
 popBtn.onclick = function () {
     if (arr.length === 0) loadArray();
 
-    arr.pop();
-    updateUI();
+    arr.pop()
+    updateUI()
 };
 
 
 shiftBtn.onclick = function () {
     if (arr.length === 0) loadArray();
 
-    arr.shift();
-    updateUI();
+    arr.shift()
+    updateUI()
 };
 
 
@@ -84,9 +87,20 @@ document.getElementById("unshiftAddBtn").onclick = function () {
     let value = document.getElementById("unshiftInput").value;
 
     if (value !== "") {
-        arr.unshift(value); 
+        arr.unshift(value);
         updateUI();
     }
 
     document.getElementById("unshiftInput").value = "";
 };
+
+reverseBtn.onclick = function(){
+
+    if(arr.length ===0 ) loadArray()
+
+        arr.reverse()
+
+        updateUI()
+}
+
+
