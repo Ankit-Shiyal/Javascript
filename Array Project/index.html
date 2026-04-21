@@ -7,8 +7,8 @@
     <title>Array project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-        <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
 
 </head>
 
@@ -17,7 +17,7 @@
     <div class="container mt-5">
         <div class="shadow p-4 text-center">
 
-            <h3 class="mb-3">enter number</h3>
+            <h3 class="mb-3">Array project</h3>
 
             <input type="text" class=" mb-3" placeholder="Enter value" id="arrayNum">
             <button id="start" class="btn btn-primary" onclick="startNum()">start</button>
@@ -29,39 +29,50 @@
                 <p id="createArray"></p>
             </div>
 
-            <div class="div">
+            <div class="d-flex justify-content-center gap-2">
 
-                <input type="text" id="pushInput" placeholder="Enter value" style="display:none;">
-                <button id="addBtn" style="display:none;">Add</button>
+                <div class="div">
+                    <input type="text" id="pushInput" placeholder="Enter value" style="display:none;">
+                    <button id="addBtn" style="display:none;">Add</button>
 
-                <button class="btn btn-outline-primary" id="pushBtn">
-                    Push
-                </button>
+                    <button class="btn btn-outline-primary" id="pushBtn">
+                        Push
+                    </button>
+                </div>
 
-                <button class="btn btn-outline-primary" id="popBtn">
-                    Pop
-                </button>
+                <div class="div">
 
-                <button class="btn btn-outline-primary" id="shiftBtn">
-                    Shift
-                </button>
+                    <button class="btn btn-outline-primary" id="popBtn">
+                        Pop
+                    </button>
+                </div>
+
+                <div class="div">
+                    <button class="btn btn-outline-primary" id="shiftBtn">
+                        Shift
+                    </button>
+
+                </div>
+
+                <div class="div">
+                    <input type="text" id="unshiftInput" placeholder="Enter value" style="display:none;">
+                    <button id="unshiftAddBtn" style="display:none;">Add First</button>
+
+                    <button class="btn btn-outline-primary" id="unshiftBtn">
+                        Unshift
+                    </button>
+                </div>
+
+                <div class="div">
+
+                    <button class="btn btn-outline-primary" id="reverseBtn">Reverse</button>
 
 
-                <input type="text" id="unshiftInput" placeholder="Enter value" style="display:none;">
-                <button id="unshiftAddBtn" style="display:none;">Add First</button>
-
-                <button class="btn btn-outline-primary" id="unshiftBtn">
-                    Unshift
-                </button>
-
-
-                <button class="btn btn-outline-primary" id="reverseBtn">Reverse</button>
-
-
+                </div>
             </div>
 
             <div class="mt-4">
-                <h5>Output:</h5>
+                <!-- <h5>Output:</h5> -->
                 <p id="output"></p>
             </div>
 
