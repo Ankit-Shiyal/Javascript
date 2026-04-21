@@ -1,0 +1,110 @@
+body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    max-width: 700px;
+}
+
+.shadow {
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+h3 {
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="text"] {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+    outline: none;
+}
+
+#itemArray input {
+    margin: 5px auto;
+}
+
+button {
+    border-radius: 8px !important;
+    padding: 8px 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#pushBtn {
+    background-color: #28a745;
+    border: none;
+}
+
+#popBtn {
+    background-color: #dc3545;
+    border: none;
+}
+
+#shiftBtn {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+}
+
+#unshiftBtn {
+    background-color: #17a2b8;
+    border: none;
+}
+
+#addBtn {
+    background-color: #6f42c1;
+    border: none;
+}
+
+#output {
+    font-weight: bold;
+    color: #222;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#createArray {
+    font-weight: 500;
+    color: #555;
+}
+
+
+
+#pushInput,
+#addBtn {
+    display: none;
+}
+
+.input-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
