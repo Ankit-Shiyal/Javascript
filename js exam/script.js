@@ -1,7 +1,7 @@
 let task = []
 let index = -1
 
-document.getElementById("form").addEventListener("submit", function (e) {
+document.getElementById("form").addEventListener("submit", (e)=> {
     e.preventDefault()
     
     addData()
