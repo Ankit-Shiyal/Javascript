@@ -1,47 +1,81 @@
-live link : https://bucolic-begonia-5a5e23.netlify.app/
+live link : https://papaya-piroshki-0e82f7.netlify.app/
+
+# 📝 Task Manager Web App
+
+A simple and user-friendly **Task Manager** built using **HTML, CSS (Bootstrap), and JavaScript**. This app allows users to add, edit, delete, and store tasks using the browser's local storage.
+
+---
+
+## 🚀 Features
+
+* ✅ Add new tasks with:
+
+  * Task name
+  * Description
+  * Due date
+* ✏️ Edit existing tasks
+* ❌ Delete tasks
+* 💾 Persistent storage using **localStorage**
+* 📱 Responsive design with Bootstrap
+* 🎨 Clean and modern UI
+
+---
+
+## 🛠️ Technologies Used
+
+* HTML5
+* CSS3
+* Bootstrap 5
+* JavaScript (Vanilla JS)
+* Browser Local Storage
+
+---
+
+---
+
+## ⚙️ How It Works
+
+1. User enters task details in the form.
+2. On submission:
+
+   * Task is stored in an array.
+   * Data is saved to `localStorage`.
+3. Tasks are displayed in a table.
+4. Users can:
+
+   * Edit a task (loads data back into form)
+   * Remove a task (deletes from list and storage)
+
+---
+
+## 📸 Screenshot
+
+<img width="954" height="430" alt="Screenshot 2026-04-24 154350" src="https://github.com/user-attachments/assets/cb4da585-758d-4316-a002-fc7054131b7f" />
 
 
-📝 Task Manager (JavaScript + Bootstrap)
+---
 
-A simple and interactive Task Manager Web App built using HTML, Bootstrap, and Vanilla JavaScript. This project allows users to add, edit, and remove tasks dynamically.
+## 💻 How to Run the Project
 
-🚀 Features
+1. Clone the repository:
 
-✅ Add new tasks with description
+   ```bash
+   git clone https://github.com/your-username/task-manager.git
+   ```
 
-✏️ Edit existing tasks
+2. Open the project folder:
 
-❌ Remove tasks
+   ```bash
+   cd task-manager
+   ```
 
-🔄 Real-time UI updates (no page reload)
+3. Open `index.html` in your browser.
 
-🎨 Styled using Bootstrap 5
+---
 
+## 📌 Future Improvements
 
--🛠️ Technologies Used
-
-   -HTML5
-
-   -CSS3 (Bootstrap 5)
-  
-   -JavaScript (ES6)
-
-💡 How It Works
-
--User enters a task and description
-
--On submit:
-
-  1-Task is added to an array
-  
-  2-Display updates dynamically
-
--Edit button:
-
-  1-Loads selected task into input fields
-  
-  2-Updates task on re-submit
-
--Remove button:
-
-  1-Deletes task from array instantly
+* Add task completion status (Done / Pending)
+* Add search and filter functionality
+* Improve UI with animations
+* Add backend/database support
