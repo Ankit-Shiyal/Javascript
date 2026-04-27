@@ -6,6 +6,8 @@ let unshiftBtn = document.getElementById("unshiftBtn");
 let itemArray = document.getElementById("itemArray");
 let showArray = document.getElementById("showArray");
 let createArray = document.getElementById("createArray")
+let reverseBtn = document.getElementById("reverseBtn")
+
 
 let arr = [];
 
@@ -45,19 +47,19 @@ function updateUI() {
 showArray.onclick = loadArray;
 
 pushBtn.onclick = function () {
-    document.getElementById("pushInput").style.display = "block";
-    document.getElementById("addBtn").style.display = "block";
+    document.getElementById("moreInput")
+    document.getElementById("addBtn")
 };
 
 document.getElementById("addBtn").onclick = function () {
-    let value = document.getElementById("pushInput").value;
+    let value = document.getElementById("moreInput").value;
 
     if (value !== "") {
         arr.push(value);
         updateUI();
     }
 
-    document.getElementById("pushInput").value = "";
+    document.getElementById("moreInput").value = "";
 };
 popBtn.onclick = function () {
     if (arr.length === 0) loadArray();
@@ -76,24 +78,47 @@ shiftBtn.onclick = function () {
 
 
 unshiftBtn.onclick = function () {
-    document.getElementById("unshiftInput").style.display = "block";
-    document.getElementById("unshiftAddBtn").style.display = "block";
+    document.getElementById("moreInput")
+    document.getElementById("addBtn")
 };
 
-document.getElementById("unshiftAddBtn").onclick = function () {
-    let value = document.getElementById("unshiftInput").value;
+document.getElementById("addBtn").onclick = function () {
+    let value = document.getElementById("moreInput").value;
 
     if (value !== "") {
         arr.unshift(value); 
         updateUI();
     }
 
-    document.getElementById("unshiftInput").value = "";
+    document.getElementById("moreInput").value = "";
 };
 
-jointBtn.onclick = function () {
+reverseBtn.onclick = function(){
+
     if (arr.length === 0) loadArray();
 
-    arr.join("");
-    updateUI();
+    arr.reverse()
+    updateUI()
+}
+
+let toStringBtn = document.getElementById("toStringBtn")
+
+toStringBtn.onclick=function(){
+
+    if (arr.length === 0) loadArray()
+
+        arr.toString(" ")
+        updateUI()
+}
+
+
+
+function lengthBtn() {
+
+    if (arr.length === 0) {
+        output.innerHTML = "Array is empty!";
+        return;
+    }
+
+    output.innerHTML = "Length: " + arr.length;
 };
