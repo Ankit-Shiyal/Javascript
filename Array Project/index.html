@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Array project</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Array Project</title>
 
-    <!-- <link rel="stylesheet" href="style.css">  -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,109 +14,66 @@
     <div class="container mt-5">
         <div class="shadow p-4 text-center">
 
-            <h3 class="mb-3">enter number</h3>
+            <h3 class="mb-3">Enter Number</h3>
+
+            <input type="number" class="mb-3 form-control w-50 mx-auto" placeholder="Enter value" id="arrayNum">
+            <button class="btn btn-primary mb-3" onclick="startNum()">Start</button>
+
+            <div class="d-flex flex-wrap justify-content-center" id="itemArray"></div>
+
+            <button class="btn btn-outline-primary m-2" id="showArray">Create Array</button>
+
+            <p id="createArray"></p>
+
+            <hr>
+
+            <input type="text" id="moreInput" class="form-control w-50 mx-auto mb-2" placeholder="Enter value">
 
 
+            <div class="d-flex flex-wrap justify-content-center gap-2">
 
-            <input type="text" class=" mb-3" placeholder="Enter value" id="arrayNum">
-            <button id="start" class="btn btn-primary" onclick="startNum()">start</button>
+                <button class="btn btn-outline-primary" id="pushBtn" onclick="pushBtn()">Push</button>
+                <button class="btn btn-outline-primary" id="popBtn" onclick="popBtn()">Pop</button>
+                <button class="btn btn-outline-primary" id="shiftBtn" onclick="shiftBtn()">Shift</button>
+                <button class="btn btn-outline-primary" id="unshiftBtn" onclick="unshiftBtn()">Unshift</button>
+                <button class="btn btn-outline-primary" id="reverseBtn" onclick="reverseBtn()">Reverse</button>
+                <button class="btn btn-outline-primary" id="toStringBtn" onclick="toStringBtn()">To String</button>
+                <button class="btn btn-outline-primary" onclick="lengthBtn()">Length</button>
+                <button class="btn btn-outline-primary" id="indexOfBtn">IndexOf</button>
+                <button class="btn btn-outline-primary" id="includesBtn">Includes</button>                
+                <button class="btn btn-outline-primary" id="sortBtn">Sort</button>
+                <button class="btn btn-outline-primary" id="ascendingBtn">Ascending</button>
+                <button class="btn btn-outline-primary" id="descendingBtn">
+                    Descending
+                </button>
 
+                <button class="btn btn-outline-primary" id="findBtn">
+                    Find
+                </button>
 
+                <button class="btn btn-outline-primary" id="FindIndexBtn">
+                    Find Index
+                </button>
 
-            <div class="justify-content-center d-flex flex-wrap" id="itemArray"></div>
+                <button class="btn btn-outline-primary" id="someBtn">
+                    Some
+                </button>
 
-            <button class="btn btn-outline-primary m-2" id="showArray" onclick="getArrayValues()">create Array</button>
+                <button class="btn btn-outline-primary" id="everyBtn">
+                    Every
+                </button>
 
+                <button class="btn btn-outline-primary" id="filterBtn">
+                    Filter
+                </button>
 
-            <div class="mt-2">
-                <p id="createArray"></p>
-            </div>
+                <button class="btn btn-outline-primary" id="mapBtn">
+                    Map
+                </button>
 
-            <div class="div">
-
-                <input type="text" id="moreInput" placeholder="Enter value">
-                <button id="addBtn " class="btn btn-outline-primary">Add</button>
-                <div class="d-flex flex-wrap justify-content-center gap-2 mt-2">
-
-                    <button class="btn btn-outline-primary" id="pushBtn">
-                        Push
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="popBtn">
-                        Pop
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="shiftBtn">
-                        Shift
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="unshiftBtn">
-                        Unshift
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="reverseBtn">
-                        Reverse
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="toStringBtn">
-                        To String
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="indexOfBtn">
-                        IndexOf
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="includesBtn">
-                        Includes
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="sortBtn">
-                        Sort
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="ascendingBtn">
-                        Ascending
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="descendingBtn">
-                        Descending
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="findBtn">
-                        Find
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="FindIndexBtn">
-                        Find Index
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="someBtn">
-                        Some
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="everyBtn">
-                        Every
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="filterBtn">
-                        Filter
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="mapBtn">
-                        Map
-                    </button>
-
-                    <button class="btn btn-outline-primary" id="reduseBtn">
-                        Reduce
-                    </button>
-
-                    <button class="btn btn-outline-primary"  onclick="lengthBtn()">
-                        Length
-                    </button>
-
-
-                </div>
-
+                <button class="btn btn-outline-primary" id="reduseBtn">
+                    Reduce
+                </button>
 
 
             </div>
@@ -129,9 +83,9 @@
                 <p id="output"></p>
             </div>
 
-
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
