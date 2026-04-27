@@ -5,7 +5,7 @@ let output = document.getElementById("output")
 // let unshiftBtn = document.getElementById("unshiftBtn")
 // let itemArray = document.getElementById("itemArray")
 // let showArray = document.getElementById("showArray")
-// let createArray = document.getElementById("createArray")
+let createArray = document.getElementById("createArray")
 // let reverseBtn = document.getElementById("reverseBtn")
 // let toStringBtn = document.getElementById("toStringBtn")
 
